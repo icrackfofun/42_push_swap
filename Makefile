@@ -6,7 +6,7 @@
 #    By: psantos- <psantos-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/17 15:39:09 by psantos-          #+#    #+#              #
-#    Updated: 2025/06/17 16:01:02 by psantos-         ###   ########.fr        #
+#    Updated: 2025/06/17 22:40:41 by psantos-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ RM = rm -rf
 LIB = $(LIB_DIR)libft.a
 NAME = push_swap
 
-SRC = main.c errors.c
+SRC = main.c errors.c init_structs.c operations_1.c
 OBJ = $(SRC:%.c=%.o)
 
 all: $(NAME)
