@@ -6,7 +6,7 @@
 /*   By: psantos- <psantos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:48:38 by psantos-          #+#    #+#             */
-/*   Updated: 2025/06/17 22:55:02 by psantos-         ###   ########.fr       */
+/*   Updated: 2025/06/17 23:12:34 by psantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 #include "push_swap.h"
 #include "lib/libft.h"
 
-void create_stacks(char **arr, t_info *info)
+void	create_stacks(char **arr, t_info *info)
 {
 	int	i;
-	int	j;	
-	
+	int	j;
+
 	i = 0;
 	while (arr[i])
 		i++;
 	info->a.head = malloc(i * sizeof(int));
-    info->b.head = malloc(i * sizeof(int));
-    if (!info->a.head || !info->b.head)
-        exit(1);
+	info->b.head = malloc(i * sizeof(int));
+	if (!info->a.head || !info->b.head)
+		exit(1);
 	info->a.size = i;
-    info->b.size = 0;
+	info->b.size = 0;
 	i--;
 	j = 0;
 	while (i >= 0)
@@ -38,7 +38,7 @@ void create_stacks(char **arr, t_info *info)
 	}
 }
 
-void init_info(int ac, char **av, t_info *info)
+void	init_info(int ac, char **av, t_info *info)
 {
 	info->arr = &av[1];
 	info->must_free = 0;
