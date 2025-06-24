@@ -6,7 +6,7 @@
 /*   By: psantos- <psantos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:48:38 by psantos-          #+#    #+#             */
-/*   Updated: 2025/06/24 14:25:08 by psantos-         ###   ########.fr       */
+/*   Updated: 2025/06/24 15:24:09 by psantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,27 @@ void	init_info(int ac, char **av, t_info *info)
 		info->must_free = 1;
 	}
 	arg_check(info->arr);
-	create_stacks(av, info);
+	create_stacks(info->arr, info);
 	if (info->must_free == 1)
 	{
 		free(info->arr);
 		info->arr = NULL;
+	}
+}
+
+void	free_info(t_info *info)
+{
+	int	i;
+
+	i = 0;
+	if (info->a.stack)
+		free(info->a.stack);
+	if (info->b.stack)
+		free(info->b.stack);
+	if (info->must_free && info->arr)
+	{
+		while (info->arr[i])
+			free(info->arr[i++]);
+		free(info->arr);
 	}
 }

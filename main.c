@@ -6,7 +6,7 @@
 /*   By: psantos- <psantos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 13:14:19 by psantos-          #+#    #+#             */
-/*   Updated: 2025/06/17 22:18:15 by psantos-         ###   ########.fr       */
+/*   Updated: 2025/06/24 15:26:58 by psantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		exit (1);
 	init_info(ac, av, &info);
+	sort(&info);
+	free_info(&info);
 	return (0);
 }
