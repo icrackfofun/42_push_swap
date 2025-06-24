@@ -6,7 +6,7 @@
 /*   By: psantos- <psantos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:48:38 by psantos-          #+#    #+#             */
-/*   Updated: 2025/06/17 23:12:34 by psantos-         ###   ########.fr       */
+/*   Updated: 2025/06/24 14:25:08 by psantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	create_stacks(char **arr, t_info *info)
 	i = 0;
 	while (arr[i])
 		i++;
-	info->a.head = malloc(i * sizeof(int));
-	info->b.head = malloc(i * sizeof(int));
-	if (!info->a.head || !info->b.head)
+	info->a.stack = malloc(i * sizeof(int));
+	info->b.stack = malloc(i * sizeof(int));
+	if (!info->a.stack || !info->b.stack)
 		exit(1);
 	info->a.size = i;
 	info->b.size = 0;
@@ -32,7 +32,7 @@ void	create_stacks(char **arr, t_info *info)
 	j = 0;
 	while (i >= 0)
 	{
-		info->a.head[j] = ft_atoi(arr[i]);
+		info->a.stack[j] = ft_atoi(arr[i]);
 		i--;
 		j++;
 	}
