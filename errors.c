@@ -6,7 +6,7 @@
 /*   By: psantos- <psantos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:00:01 by psantos-          #+#    #+#             */
-/*   Updated: 2025/06/17 22:18:36 by psantos-         ###   ########.fr       */
+/*   Updated: 2025/06/24 22:52:12 by psantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	str_check(char *str)
 	return (0);
 }
 
-int	has_duplicates(char **arr)
+/*int	has_duplicates(char **arr)
 {
 	int	i;
 	int	j;
@@ -53,7 +53,34 @@ int	has_duplicates(char **arr)
 		j = i + 1;
 		while (arr[j])
 		{
-			if (ft_strncmp(arr[i], arr[j], ft_strlen(arr[i])) == 0)
+			if (ft_strncmp(arr[i], arr[j]) == 0)
+			{
+				write(2, "Error\n", 6);
+				return (1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}*/
+
+int	has_duplicates(char **arr)
+{
+	int	i;
+	int	j;
+	int	val_i;
+	int	val_j;
+
+	i = 0;
+	while (arr[i])
+	{
+		val_i = ft_atoi(arr[i]);
+		j = i + 1;
+		while (arr[j])
+		{
+			val_j = ft_atoi(arr[j]);
+			if (val_i == val_j)
 			{
 				write(2, "Error\n", 6);
 				return (1);

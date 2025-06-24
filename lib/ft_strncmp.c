@@ -6,23 +6,23 @@
 /*   By: psantos- <psantos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 18:04:49 by psantos-          #+#    #+#             */
-/*   Updated: 2025/04/20 18:40:08 by psantos-         ###   ########.fr       */
+/*   Updated: 2025/06/24 17:19:24 by psantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_strncmp(const char *str1, const char *str2, size_t n)
+int	ft_strncmp(const char *str1, const char *str2)
 {
 	size_t	i;
 
+	if (!*str1 || !*str2)
+		return (-1);
 	i = 0;
-	while (i < n && str1[i] && str1[i] == str2[i])
+	while (str1[i] && str1[i] == str2[i])
 	{
 		i++;
 	}
-	if (i == n)
-		return (0);
 	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 }
 

@@ -6,7 +6,7 @@
 /*   By: psantos- <psantos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:00:15 by psantos-          #+#    #+#             */
-/*   Updated: 2025/06/24 15:16:24 by psantos-         ###   ########.fr       */
+/*   Updated: 2025/06/25 00:08:02 by psantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,12 @@ typedef struct s_stack
 	int	size;
 }	t_stack;
 
-typedef struct s_ops
-{
-	char	*op;
-	void	*next;
-}	t_ops;
-
 typedef struct s_info
 {
 	char	**arr;
 	int		must_free;
 	t_stack	a;
 	t_stack	b;
-	t_ops	ops;
 }	t_info;
 
 int		is_digit(char c);
@@ -51,7 +44,15 @@ void	rra(t_info *info);
 void	rrb(t_info *info);
 void	rrr(t_info *info);
 int		get_min_index(t_stack *stack);
+int		get_max_index(t_stack *stack);
+int		get_min_value(t_stack *s);
+int		get_max_value(t_stack *s);
 void	push_min_to_b(t_info *info);
+void	rotate_b_to_top(t_info *info);
+void	fill_buckets(t_info *info, int num_buckets, int min, int bucket_range);
+void	empty_buckets(t_info *info);
 void	sort(t_info *info);
+void	sort_two(t_info *info);
 void	sort_three(t_info *info);
 void	sort_five(t_info *info);
+void	sort_bucket(t_info *info, int num_buckets);
