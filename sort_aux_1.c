@@ -6,7 +6,7 @@
 /*   By: psantos- <psantos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 16:04:33 by psantos-          #+#    #+#             */
-/*   Updated: 2025/06/24 16:55:37 by psantos-         ###   ########.fr       */
+/*   Updated: 2025/06/30 10:52:48 by psantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,11 @@ int	get_max_index(t_stack *stack)
 
 int	get_min_value(t_stack *s)
 {
-	int i;
+	int	i;
+	int	min;
 
 	i = 0;
-	int min = s->stack[0];
+	min = s->stack[0];
 	while (++i < s->size)
 		if (s->stack[i] < min)
 			min = s->stack[i];
@@ -68,16 +69,16 @@ int	get_min_value(t_stack *s)
 
 int	get_max_value(t_stack *s)
 {
-	int i;
+	int	i;
+	int	max;
 
 	i = 0;
-	int max = s->stack[0];
+	max = s->stack[0];
 	while (++i < s->size)
 		if (s->stack[i] > max)
 			max = s->stack[i];
 	return (max);
 }
-
 
 void	push_min_to_b(t_info *info)
 {
@@ -100,4 +101,3 @@ void	push_min_to_b(t_info *info)
 	}
 	pb(info);
 }
-

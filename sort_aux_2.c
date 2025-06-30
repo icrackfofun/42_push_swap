@@ -6,7 +6,7 @@
 /*   By: psantos- <psantos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 16:54:15 by psantos-          #+#    #+#             */
-/*   Updated: 2025/06/25 00:06:30 by psantos-         ###   ########.fr       */
+/*   Updated: 2025/06/30 11:15:21 by psantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,53 +15,80 @@
 #include "lib/libft.h"
 #include <stdio.h>
 
-void rotate_b_to_top(t_info *info)
+void	rotate_b_to_top(t_info *info)
 {
-    int max_idx = get_max_index(&info->b);
-    int size = info->b.size;
+	int	max_idx;
+	int	size;
 
-    if (max_idx >= size / 2)
-    {
-        while (max_idx < size - 1)
+	size = info->b.size;
+	max_idx = get_max_index(&info->b);
+	if (max_idx >= size / 2)
+	{
+		while (max_idx < size - 1)
 		{
-            rb(info);
+			rb(info);
 			max_idx++;
 		}
-    }
-    else
-    {
-        while (max_idx >= 0)
-        {
-            rrb(info);
-            max_idx--;
-        }
-    }
+	}
+	else
+	{
+		while (max_idx >= 0)
+		{
+			rrb(info);
+			max_idx--;
+		}
+	}
+}
+
+void	to_top_a(t_info *info, int index)
+{
+	int	size;
+
+	size = info->a.size;
+	if (index >= size / 2)
+	{
+		while (index++ < size - 1)
+			ra(info);
+	}
+	else
+	{
+		while (index-- >= 0)
+			rra(info);
+	}
+}
+
+int	find_in_bucket(t_stack *stack, int lower, int upper)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack->size)
+	{
+		if (stack->stack[i] >= lower && stack->stack[i] < upper)
+			return (i);
+		i++;
+	}
+	return (-1);
 }
 
 void	fill_buckets(t_info *info, int num_buckets, int min, int bucket_range)
 {
 	int	i;
-	int	processed;
-	int	size;
-	int	val;
-	int	lower_bound;
-	int	upper_bound;
+	int	lower;
+	int	upper;
+	int	idx;
 
 	i = 0;
 	while (i < num_buckets)
 	{
-		lower_bound = min + i * bucket_range;
-		upper_bound = min + (i + 1) * bucket_range;
-		size = info->a.size;
-		processed = 0;
-		while (processed < size)
+		lower = min + i * bucket_range;
+		upper = min + (i + 1) * bucket_range;
+		idx = find_in_bucket(&info->a, lower, upper);
+		while (idx != -1)
 		{
-			val = info->a.stack[info->a.size - 1];
-			if (val >= lower_bound && val < upper_bound)
-				pb(info);
-			else
-				ra(info);
-			processed++;
+			to_top_a(info, idx);
+			pb(info);
+			idx = find_in_bucket(&info->a, lower, upper);
 		}
 		i++;
 	}
@@ -75,4 +102,3 @@ void	empty_buckets(t_info *info)
 		pa(info);
 	}
 }
-

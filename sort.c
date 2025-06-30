@@ -6,7 +6,7 @@
 /*   By: psantos- <psantos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 14:26:42 by psantos-          #+#    #+#             */
-/*   Updated: 2025/06/25 00:07:28 by psantos-         ###   ########.fr       */
+/*   Updated: 2025/06/30 11:02:11 by psantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,13 @@ void	sort_bucket(t_info *info, int num_buckets)
 
 void	sort(t_info *info)
 {
-	int i;
+	int	i;
 
-    i = info->a.size - 1;
-    while (info->a.stack[i] < info->a.stack[i - 1] && i > 0)
-    {
-        i--;
-    }
+	i = info->a.size - 1;
+	while (info->a.stack[i] < info->a.stack[i - 1] && i > 0)
+	{
+		i--;
+	}
 	if (i == 0)
 	{
 		free_info(info);
@@ -94,5 +94,5 @@ void	sort(t_info *info)
 	else if (info->a.size <= 5)
 		sort_five(info);
 	else
-		sort_bucket(info, 5);
+		sort_bucket(info, 9);
 }

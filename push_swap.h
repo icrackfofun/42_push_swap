@@ -6,7 +6,7 @@
 /*   By: psantos- <psantos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 14:00:15 by psantos-          #+#    #+#             */
-/*   Updated: 2025/06/25 00:08:02 by psantos-         ###   ########.fr       */
+/*   Updated: 2025/06/30 11:08:31 by psantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int		get_min_value(t_stack *s);
 int		get_max_value(t_stack *s);
 void	push_min_to_b(t_info *info);
 void	rotate_b_to_top(t_info *info);
+void	to_top_a(t_info *info, int index);
+int		find_in_bucket(t_stack *stack, int lower, int upper);
 void	fill_buckets(t_info *info, int num_buckets, int min, int bucket_range);
 void	empty_buckets(t_info *info);
 void	sort(t_info *info);
