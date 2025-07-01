@@ -6,7 +6,7 @@
 #    By: psantos- <psantos-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/17 15:39:09 by psantos-          #+#    #+#              #
-#    Updated: 2025/06/24 16:54:29 by psantos-         ###   ########.fr        #
+#    Updated: 2025/07/01 20:50:37 by psantos-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,5 +41,9 @@ fclean: clean
 	$(MAKE) -C $(LIB_DIR) fclean
 
 re: fclean all
+
+test:
+	curl -L -o test.sh https://raw.githubusercontent.com/biertisch/42_push_swap/refs/heads/main/test.sh
+	chmod +x test.sh
 
 .PHONY: all clean fclean re

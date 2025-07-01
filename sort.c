@@ -6,7 +6,7 @@
 /*   By: psantos- <psantos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 14:26:42 by psantos-          #+#    #+#             */
-/*   Updated: 2025/06/30 11:02:11 by psantos-         ###   ########.fr       */
+/*   Updated: 2025/07/01 20:41:28 by psantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,5 @@ void	sort(t_info *info)
 	else if (info->a.size <= 5)
 		sort_five(info);
 	else
-		sort_bucket(info, 9);
+		sort_bucket(info, 10);
 }

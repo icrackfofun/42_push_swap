@@ -6,7 +6,7 @@
 /*   By: psantos- <psantos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 19:20:26 by psantos-          #+#    #+#             */
-/*   Updated: 2025/04/22 12:19:04 by psantos-         ###   ########.fr       */
+/*   Updated: 2025/07/01 20:35:35 by psantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include <string.h>
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
-	int	sign_counter;
-	int	number;
+	int			sign_counter;
+	long int	number;
 
 	sign_counter = 0;
 	number = 0;
