@@ -6,7 +6,7 @@
 /*   By: psantos- <psantos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 16:54:15 by psantos-          #+#    #+#             */
-/*   Updated: 2025/06/30 11:15:21 by psantos-         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:17:39 by psantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ int	find_in_bucket(t_stack *stack, int lower, int upper)
 {
 	int	i;
 
-	i = 0;
-	while (i < stack->size)
+	i = stack->size - 1;
+	while (i >= 0)
 	{
 		if (stack->stack[i] >= lower && stack->stack[i] < upper)
 			return (i);
-		i++;
+		i--;
 	}
 	return (-1);
 }
